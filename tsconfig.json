@@ -31,8 +31,8 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/tests/**/*.ts",
-    "src/tests/**/*.tsx",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
     "node_modules/@types/jest/index.d.ts",
     "node_modules/@types/jest/index.d.ts"
   ],

@@ -140,6 +140,24 @@ export class Note {
 
 export class Scale {
 
+    public static getMinorScale(tonicNote: DenormalizedNote | NormalizedNote, octave: number): MajorScale {
+
+        if (<DenormalizedNote> tonicNote) {
+            tonicNote = Note.getNormalizedNote(<DenormalizedNote> tonicNote);
+        }
+
+        const tonicAbsoluteNote = {note: <NormalizedNote> tonicNote, octave: octave};
+        return [
+            tonicAbsoluteNote,
+            Note.addHalfNotes(tonicAbsoluteNote, 2),
+            Note.addHalfNotes(tonicAbsoluteNote, 3),
+            Note.addHalfNotes(tonicAbsoluteNote, 5),
+            Note.addHalfNotes(tonicAbsoluteNote, 7),
+            Note.addHalfNotes(tonicAbsoluteNote, 8),
+            Note.addHalfNotes(tonicAbsoluteNote, 10)
+        ]
+    }
+
     public static getMajorScale(tonicNote: DenormalizedNote | NormalizedNote, octave: number): MajorScale {
 
         if (<DenormalizedNote> tonicNote) {

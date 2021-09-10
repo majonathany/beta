@@ -125,6 +125,21 @@ Note.addHalfNotes = (fundamental, halfSteps) => {
     return { note: realNote, octave: currentOctave };
 };
 export class Scale {
+    static getMinorScale(tonicNote, octave) {
+        if (tonicNote) {
+            tonicNote = Note.getNormalizedNote(tonicNote);
+        }
+        const tonicAbsoluteNote = { note: tonicNote, octave: octave };
+        return [
+            tonicAbsoluteNote,
+            Note.addHalfNotes(tonicAbsoluteNote, 2),
+            Note.addHalfNotes(tonicAbsoluteNote, 3),
+            Note.addHalfNotes(tonicAbsoluteNote, 5),
+            Note.addHalfNotes(tonicAbsoluteNote, 7),
+            Note.addHalfNotes(tonicAbsoluteNote, 8),
+            Note.addHalfNotes(tonicAbsoluteNote, 10)
+        ];
+    }
     static getMajorScale(tonicNote, octave) {
         if (tonicNote) {
             tonicNote = Note.getNormalizedNote(tonicNote);
